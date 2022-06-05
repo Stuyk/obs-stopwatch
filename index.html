@@ -22,8 +22,6 @@
             setInterval(() => {
                 const timeInMiliseconds = (Date.now() - start);
                
-                console.log(timeInMiliseconds);
-
                 let h,m,s;
                 h = Math.floor(timeInMiliseconds/1000/60/60);
                 m = Math.floor((timeInMiliseconds/1000/60/60 - h)*60);
