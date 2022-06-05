@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+    <head>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
+
+            body { background-color: #00ff00; }
+            
+            .stopwatch {
+                position: fixed;
+                font-size: 48px;
+                font-family: 'Kdam Thmor Pro';
+                color: white;
+                text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5), 0px -2px 5px rgba(0, 0, 0, 0.5), -2px 0px 5px rgba(0, 0, 0, 0.5), 2px 0px 5px rgba(0, 0, 0, 0.5);
+            }
+            </style>
+    </head>
+    <body>
+        <div class="stopwatch" />
+        <script>
+            const start = Date.now();
+
+            setInterval(() => {
+                const timeInMiliseconds = (Date.now() - start);
+               
+                console.log(timeInMiliseconds);
+
+                let h,m,s;
+                h = Math.floor(timeInMiliseconds/1000/60/60);
+                m = Math.floor((timeInMiliseconds/1000/60/60 - h)*60);
+                s = Math.floor(((timeInMiliseconds/1000/60/60 - h)*60 - m)*60);
+
+                if (h <= 9) {
+                    h = "0" + h;
+                }
+
+                if (m <= 9) {
+                    m = "0" + m;
+                }
+
+                if (s <= 9) {
+                    s = "0" + s;
+                }
+
+                document.querySelector('.stopwatch').innerHTML = `${h}:${m}:${s}`;
+            }, 1);
+        </script>
+    </body>
+</html>
